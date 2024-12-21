@@ -11,9 +11,10 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stddef.h>
+#include <sys/types.h>
+#include <limits.h>
 
-int	parse_specifiers(const char *specifier, t_control *control)
+static int	parse_specifiers(const char *specifier, t_control *control)
 {
 	control->type = *specifier;
 	if (is_specifier(control->type) == false)

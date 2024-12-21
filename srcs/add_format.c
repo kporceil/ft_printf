@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdarg.h>
 #include <stdlib.h>
+#include <limits.h>
 
 #ifndef L_HEXBASE
 # define L_HEXBASE "0123456789abcdef"

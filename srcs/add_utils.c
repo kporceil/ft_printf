@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <sys/types.h>
+#include <limits.h>
 
 int	add_str_to_buffer(t_control *control, char *str)
 {

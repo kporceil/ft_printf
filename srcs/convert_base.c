@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdint.h>
-#include <stddef.h>
 #include <stdlib.h>
 
 static size_t	ft_strlen(char *s)
