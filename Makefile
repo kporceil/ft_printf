@@ -29,10 +29,6 @@ $(OBJDIR)%.o: $(SRCDIR)%.c | $(OBJDIR) $(BUILDDIR) $(DEPDIR)
 $(OBJDIR) $(DEPDIR) $(BUILDDIR):
 	mkdir -p $@
 
-.PHONY: main
-main: $(NAME)
-	$(CC) $(CPPFLAGS) main.c $(NAME) -o ft_printf -g3
-
 .PHONY: clean
 clean:
 	rm -rf $(BUILDDIR)
@@ -40,10 +36,6 @@ clean:
 .PHONY: fclean
 fclean: clean
 	rm -f $(NAME)
-
-.PHONY: fcleanmain
-fcleanmain: fclean
-	rm -f ft_printf
 
 .PHONY: re
 re: fclean all

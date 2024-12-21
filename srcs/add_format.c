@@ -6,13 +6,25 @@
 /*   By: kporceil <kporceil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:05:19 by kporceil          #+#    #+#             */
-/*   Updated: 2024/12/20 22:38:41 by kporceil         ###   ########lyon.fr   */
+/*   Updated: 2024/12/21 20:32:00 by kporceil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdarg.h>
 #include <stdlib.h>
+
+#ifndef L_HEXBASE
+# define L_HEXBASE "0123456789abcdef"
+#endif
+
+#ifndef U_HEXBASE
+# define U_HEXBASE "0123456789ABCDEF"
+#endif
+
+#ifndef DECIBASE
+# define DECIBASE "0123456789"
+#endif
 
 int	add_char(t_control *control)
 {
@@ -63,10 +75,11 @@ int	add_pointer(t_control *control)
 	if (!result)
 		return (-1);
 	if (add_str_to_buffer(control, "0x") == -1)
-		return (free(result), -1);
+		return (free_return(result));
 	if (add_str_to_buffer(control, result) == -1)
-		return (free(result), -1);
-	return (free(result), 0);
+		return (free_return(result));
+	free(result);
+	return (0);
 }
 
 int	add_digit(t_control *control)
@@ -79,6 +92,7 @@ int	add_digit(t_control *control)
 	if (!result)
 		return (-1);
 	if (add_str_to_buffer(control, result) == -1)
-		return (free(result), -1);
-	return (free(result), 0);
+		return (free_return(result));
+	free(result);
+	return (0);
 }

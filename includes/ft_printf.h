@@ -6,24 +6,12 @@
 /*   By: kporceil <kporceil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:02:52 by kporceil          #+#    #+#             */
-/*   Updated: 2024/12/20 22:12:41 by kporceil         ###   ########lyon.fr   */
+/*   Updated: 2024/12/21 20:31:05 by kporceil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
-# ifndef L_HEXBASE
-#  define L_HEXBASE "0123456789abcdef"
-# endif
-
-# ifndef U_HEXBASE
-#  define U_HEXBASE "0123456789ABCDEF"
-# endif
-
-# ifndef DECIBASE
-#  define DECIBASE "0123456789"
-# endif
 
 # include <sys/types.h>
 # include <stdarg.h>
@@ -48,7 +36,7 @@ typedef struct s_control
 {
 	char		buffer[1024];
 	t_specifier	type;
-	int			char_write;
+	long		char_write;
 	va_list		args;
 }				t_control;
 
@@ -72,5 +60,6 @@ int			add_percent(t_control *control);
 char		*unsigned_convert_base(unsigned long nbr, char *base);
 char		*convert_base(long nbr, char *base);
 int			add_str_to_buffer(t_control *control, char *str);
+int			free_return(void *ptr);
 
 #endif

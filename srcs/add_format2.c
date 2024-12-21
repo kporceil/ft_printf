@@ -6,13 +6,25 @@
 /*   By: kporceil <kporceil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 22:37:54 by kporceil          #+#    #+#             */
-/*   Updated: 2024/12/20 22:39:05 by kporceil         ###   ########lyon.fr   */
+/*   Updated: 2024/12/21 20:35:26 by kporceil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdarg.h>
 #include <stdlib.h>
+
+#ifndef L_HEXBASE
+# define L_HEXBASE "0123456789abcdef"
+#endif
+
+#ifndef U_HEXBASE
+# define U_HEXBASE "0123456789ABCDEF"
+#endif
+
+#ifndef DECIBASE
+# define DECIBASE "0123456789"
+#endif
 
 int	add_integer(t_control *control)
 {
@@ -24,8 +36,9 @@ int	add_integer(t_control *control)
 	if (!result)
 		return (-1);
 	if (add_str_to_buffer(control, result) == -1)
-		return (free(result), -1);
-	return (free(result), 0);
+		return (free_return(result));
+	free(result);
+	return (0);
 }
 
 int	add_unsigned(t_control *control)
@@ -38,8 +51,9 @@ int	add_unsigned(t_control *control)
 	if (!result)
 		return (-1);
 	if (add_str_to_buffer(control, result) == -1)
-		return (free(result), -1);
-	return (free(result), 0);
+		return (free_return(result));
+	free(result);
+	return (0);
 }
 
 int	add_l_hexa(t_control *control)
@@ -52,8 +66,9 @@ int	add_l_hexa(t_control *control)
 	if (!result)
 		return (-1);
 	if (add_str_to_buffer(control, result) == -1)
-		return (free(result), -1);
-	return (free(result), 0);
+		return (free_return(result));
+	free(result);
+	return (0);
 }
 
 int	add_u_hexa(t_control *control)
@@ -66,6 +81,7 @@ int	add_u_hexa(t_control *control)
 	if (!result)
 		return (-1);
 	if (add_str_to_buffer(control, result) == -1)
-		return (free(result), -1);
-	return (free(result), 0);
+		return (free_return(result));
+	free(result);
+	return (0);
 }

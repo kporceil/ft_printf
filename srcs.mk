@@ -8,7 +8,7 @@ override DEPDIR := $(addprefix $(BUILDDIR), deps/)
 
 BASENAME := control_utils ft_printf parsing parsing_utils \
 			write_utils add_format convert_base unsigned_convert_base \
-			add_utils add_format2
+			add_utils add_format2 alloc_utils
 
 override SRCS := $(addprefix $(SRCDIR), $(addsuffix .c, $(BASENAME)))
 

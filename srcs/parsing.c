@@ -56,9 +56,7 @@ int	parse_input(const char *format, t_control *control)
 			++i;
 		}
 		else
-		{
 			control->buffer[control->char_write++ % 1024] = format[i];
-		}
 		++i;
 	}
 	if (format[i] && control->char_write >= INT_MAX)
